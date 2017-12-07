@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 import countries from './countries';
 
+import { MuiThemeProvider } from 'material-ui/styles';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import TextField from 'material-ui/TextField';
 
 
@@ -118,8 +120,14 @@ class ReactCountryAutocomplete extends Component {
                 <div ref="flagOptions" style={{ fontSize: `${optionsSize}px` }}
                      className={`flag-options ${alignClass}`}>
                     {this.props.searchable &&
-                    <div className="filterBox" style={{marginLeft: 10}}>
-                        <TextField autoFocus placeholder="Search" ref="filterText" onChange={this.filterSearch} />
+                    <div className="filterBox" style={{ marginLeft: 10 }}>
+                        <MuiThemeProvider theme={getMuiTheme}>
+                            <TextField id="uniqueIdGoesHere"
+                                       autoFocus
+                                       placeholder="Search"
+                                       ref="filterText"
+                                       onChange={this.filterSearch} />
+                        </MuiThemeProvider>
                     </div>
                     }
                     {(this.state.filter ? this.state.filteredCountries : this.state.countries).map(countryCode =>
