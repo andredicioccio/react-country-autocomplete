@@ -2,9 +2,39 @@
   "name": "react-country-autocomplete",
   "version": "0.1.0",
   "description": "autocomplete dropdown to select a country",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "files": [
+    "css",
+    "scss",
+    "flags",
+    "es",
+    "lib",
+    "umd"
+  ],
   "scripts": {
+    "build": "nwb build-react-component",
+    "start": "nwb serve-react-demo",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "material-ui": "^0.20.0",
+    "prop-types": "^15.5.8"
+  },
+  "peerDependencies": {
+    "react": "15.x"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0",
+    "nwb": "^0.19.2",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-syntax-highlight": "0.0.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andredicioccio/react-country-autocomplete.git"
   },
   "author": "Andre DiCioccio",
   "license": "MIT"
