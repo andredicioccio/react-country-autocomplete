@@ -1,0 +1,11 @@
+{
+  "name": "react-country-autocomplete",
+  "version": "0.1.0",
+  "description": "autocomplete dropdown to select a country",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Andre DiCioccio",
+  "license": "MIT"
+}
