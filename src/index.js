@@ -96,13 +96,14 @@ class ReactCountryAutocomplete extends Component {
     render() {
 
         let isSelected = this.state.selected || this.state.defaultCountry;
+        let selectedColor = this.props.selectedColor || '#333333';
         let selectedSize = this.props.selectedSize;
         let optionsSize = this.props.optionsSize;
         let alignClass = this.props.alignOptions.toLowerCase() === 'left' ? 'to--left' : '';
 
         return (
             <div className={`flag-select ${this.props.className ? this.props.className : ""}`}>
-                <div ref="selectedFlag" style={{ fontSize: `${selectedSize}px` }}
+                <div ref="selectedFlag" style={{ fontSize: `${selectedSize}px`, color: `${selectedColor}` }}
                      className={`selected--flag--option ${this.props.disabled ? 'no--focus' : ''}`}
                      onClick={this.toggleOptions}>
                     {isSelected &&
@@ -122,7 +123,7 @@ class ReactCountryAutocomplete extends Component {
                 </div>
 
                 {this.state.openOptions &&
-                <div ref="flagOptions" style={{ fontSize: `${optionsSize}px` }}
+                <div ref="flagOptions" style={{ fontSize: `${optionsSize}px`, color: '#4d4d4d' }}
                      className={`flag-options ${alignClass}`}>
                     {this.props.searchable &&
                     <div className="filterBox" style={{ marginLeft: 10 }}>

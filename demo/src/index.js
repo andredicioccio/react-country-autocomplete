@@ -45,10 +45,11 @@ class Demo extends React.Component {
 							<span>Searchable</span>
 						</div>
 						<div className="demo-source">
-							<Highlight lang={'js'} value={'<ReactCountryAutocomplete \n searchable={true} />'} />
+							<Highlight lang={'js'} value={'<ReactCountryAutocomplete \n searchable={true} \n selectedColor="red"/>'} />
 						</div>
 						<ReactCountryAutocomplete
-						searchable={true} />
+							selectedColor={'red'}
+							searchable={true} />
 					</div>
 					<div className="demo-group">
 						<div className="demo-group-title">
