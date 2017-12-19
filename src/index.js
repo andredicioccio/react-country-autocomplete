@@ -2,15 +2,14 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 import countries from './countries';
 
-import { MuiThemeProvider } from 'material-ui/styles';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
+
 import TextField from 'material-ui/TextField';
 
-const muiTheme = getMuiTheme({
-    palette: {
-        textColor: '#333333',
-    },
-});
+import lightBlue from 'material-ui/colors/lightBlue';
+
+
+
 
 class ReactCountryAutocomplete extends Component {
     constructor(props) {
@@ -43,6 +42,16 @@ class ReactCountryAutocomplete extends Component {
         this.closeOptions = this.closeOptions.bind(this);
         this.onSelect = this.onSelect.bind(this);
         this.filterSearch = this.filterSearch.bind(this);
+
+
+        this.theme = createMuiTheme({
+            palette: {
+                type: this.props.theme || 'light',
+                primary: lightBlue
+            },
+        });
+
+
     }
 
     toggleOptions() {
@@ -102,6 +111,7 @@ class ReactCountryAutocomplete extends Component {
         let alignClass = this.props.alignOptions.toLowerCase() === 'left' ? 'to--left' : '';
 
         return (
+            <MuiThemeProvider theme={this.theme}>
             <div className={`flag-select ${this.props.className ? this.props.className : ""}`}>
                 <div ref="selectedFlag" style={{ fontSize: `${selectedSize}px`, color: `${selectedColor}` }}
                      className={`selected--flag--option ${this.props.disabled ? 'no--focus' : ''}`}
@@ -127,13 +137,11 @@ class ReactCountryAutocomplete extends Component {
                      className={`flag-options ${alignClass}`}>
                     {this.props.searchable &&
                     <div className="filterBox" style={{ marginLeft: 10 }}>
-                        <MuiThemeProvider theme={muiTheme}>
                             <TextField id="uniqueIdGoesHere"
                                        autoFocus
                                        placeholder="Search"
                                        ref="filterText"
                                        onChange={this.filterSearch} />
-                        </MuiThemeProvider>
                     </div>
                     }
                     {(this.state.filter ? this.state.filteredCountries : this.state.countries).map(countryCode =>
@@ -153,6 +161,7 @@ class ReactCountryAutocomplete extends Component {
                 </div>
                 }
             </div>
+            </MuiThemeProvider>
         )
     }
 }
