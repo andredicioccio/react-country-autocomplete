@@ -129,7 +129,7 @@ class ReactCountryAutocomplete extends Component {
                     {!isSelected &&
                     <span className="country-label">{this.props.placeholder}</span>
                     }
-                    <span className={`arrow-down ${this.props.disabled ? 'hidden' : ''}`}>▾</span>
+                    <span className={`arrow-down ${this.props.disabled ? 'hidden' : ''}`}style={{ color: `${selectedColor}` }}>▾</span>
                 </div>
 
                 {this.state.openOptions &&
